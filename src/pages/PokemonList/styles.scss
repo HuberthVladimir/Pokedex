@@ -1,0 +1,25 @@
+main {
+   margin: 2rem 0;
+   display: grid;
+   gap: 1rem;
+   grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
+   grid-template-rows: auto;
+   justify-content: center;
+
+
+   @media (max-width: 1650px) {
+      grid-template-columns: 19rem 19rem 19rem 19rem;
+   }
+   
+   @media (max-width: 1310px) {
+      grid-template-columns: 19rem 19rem 19rem;
+   }
+
+   @media (max-width: 920px) {
+      grid-template-columns: 19rem 19rem;
+   }
+
+   @media (max-width: 588px) {
+      grid-template-columns: 19rem;
+   }
+}

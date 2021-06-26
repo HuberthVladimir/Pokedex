@@ -2,12 +2,53 @@ nav {
    display: flex;
    width: auto;
    height: 5rem;
-   background: var(--blue);
+   background: var(--yellow);
    align-items: center;
    padding: 0 3rem;
-   gap: 1rem;
    
-   p{ 
-      color: var(--yellow);
+   .icon {
+      
+      .iconNavigationBar {
+         width: 9rem;
+         height: 7rem;
+         color: var(--blue);
+         cursor: default;
+      }
+   }
+
+   .buttonsNavBar {
+      display: flex;
+      gap: 1rem;
+      margin-left: auto;
+   }
+
+   p { 
+      text-align: center;
+      line-height: 2rem;
+      width: 8rem;
+      height: 2rem;
+      background: var(--blue);
+      color: #000;
+      border-radius: 1rem;
+      transition: filter 1s;
+
+      &:hover {
+         filter: brightness(0.8);
+      }
+   }
+
+   @media (max-width: 592px) {
+      flex-direction: column;
+      height: 20rem;
+      gap: 1rem;
+
+      .buttonsNavBar {
+         flex-direction: column;
+         margin-left: 0;
+      }
+
+      p {
+         width: 15rem;
+      }
    }
 }

@@ -1,75 +1,49 @@
-/*
-   -numeroPokedex
-   -nome
-   -sprite da frente
-   -tipo
-   habilidades
-*/
 import './styles.scss'
-import { api } from '../../services/api'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 
-interface DataPokemon {
-   id: number;
+interface CardsPokemonsProps {
+   sprite: string;
+   id: string;
    name: string;
-   types: any;
-   abilities: [];
-   sprites: any;
+   firstType: string;
+   secondType: string;
+   firstAbility?: string;
+   secondAbility?: string;
+   thirdAbility?: string;
 }
 
-export function CardsPokemonsStats() {
-   const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
-   // const dataPokemonApi: DataPokemon[] = []
-   useEffect(() => {
-      api.get('/pokemon?limit=151&offset=0')
-         .then(response => response.data.results)
-         .then(data => data.map((dataPokemon: any) =>
-            axios.get(dataPokemon.url)
-               .then(response => setDataPokemon(oldState => [...oldState, response.data]))
-         ))
-   }, [])
-   console.log(dataPokemon)
+const CardsPokemonsStats: React.FC<CardsPokemonsProps> = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }) => {
 
    return (
       <>
-         {dataPokemon.map(data => {
-            return (
-               <section>
-                  <img
-                     src={data.sprites.front_default}
-                     alt="pokemon"
-                  />
-                  <p>{data.types[0].type.name}</p>
-                  {/* <div className='headerCard'>
-                     <img
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-                        alt="pokemon"
-                     />
-                     <div>
-                        <p>#{data.id}</p>
-                        <h1>Bulbasaur</h1>
-                     </div>
-                  </div>
+         <section className={firstType}>
+            <div className='headerCard'>
+               <img
+                  src={sprite}
+                  alt={name}
+               />
+               <div>
+                  <p>#{id}</p>
+                  <h1>{name}</h1>
+               </div>
+            </div>
 
-                  <div className="pokemonInfos">
-                     <div className="pokemonTypes">
-                        <p className="title">Type: </p>
-                        <p className="grass">{data.types[0].type.name}</p>
-                        <p className="poison">{data.types[1].type.name}</p>
-                     </div>
+            <div className="pokemonInfos">
+               <div className="pokemonTypes">
+                  <p className="title">Type: </p>
+                  <p className={firstType}>{firstType}</p>
+                  <p className={secondType}>{secondType}</p>
+               </div>
 
-                     <div className="pokemonAbility">
-                        <p className="abilityTitle">Abilitys: </p>
-                        <p>overgrow</p>
-                        <p>chlorophyll</p>
-                        <p>chlorophyll</p>
-                     </div>
-                  </div> */}
-               </section>
-
-            )
-         })}
+               <div className="pokemonAbility">
+                  <p className="abilityTitle">Abilitys: </p>
+                  <p>{firstAbility}</p>
+                  <p>{secondAbility}</p>
+                  <p>{thirdAbility}</p>
+               </div>
+            </div>
+         </section>
       </>
    )
 }
+
+export default CardsPokemonsStats

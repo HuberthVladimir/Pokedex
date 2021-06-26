@@ -1,28 +1,37 @@
 import './app.scss'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { CardsPokemonsStats } from "./components/CardsPokemonsStats";
-// import { Api } from './services/api';
+import { PokemonLIst } from "./pages/PokemonList";
+
+import { IconContext } from "react-icons";
+import { SiPokemon } from 'react-icons/si'
 
 export function App() {
-
-  // Api.get('/assets')
-  //   .then(response => response.data)
   return (
     <Router>
       <nav>
-        <Link style={{ textDecoration: 'none' }} to='/'>
-          <p>Pokemons</p>
-        </Link>
-        <Link style={{ textDecoration: 'none' }} to='/types'>
-          <p>Tipos</p>
-        </Link>
-        <Link style={{ textDecoration: 'none' }} to='/weakness'>
-          <p>Fraquezas</p>
-        </Link>
+        <div className="icon">
+          <IconContext.Provider value={{ className: "iconNavigationBar" }}>
+            <div>
+              <SiPokemon />
+            </div>
+          </IconContext.Provider>
+        </div>
+
+        <div className="buttonsNavBar">
+          <Link style={{ textDecoration: 'none' }} to='/'>
+            <p>Pokemons</p>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to='/types'>
+            <p>Types</p>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to='/weakness'>
+            <p>Weakness</p>
+          </Link>
+        </div>
       </nav>
       <Switch>
         <Route exact path='/'>
-          <CardsPokemonsStats />
+          <PokemonLIst />
         </Route>
         <Route path='/types'>
           <h1>
