@@ -6,7 +6,8 @@ A pokedex made with the api from https://pokeapi.co/.
 This has been a very fun challenge, especially with Typescript, which has been giving me a few errors here and there. I hope whenever possible when I'm learning I can implement something here. Enjoy
 </p>
 
-![PokePage](C:\Users\Hub_2\Desktop\desenvolviment\pokedex\src\assets\PokePage.png)
+![PokePage](https://user-images.githubusercontent.com/44384037/123525337-33636800-d6a6-11eb-81d3-14454f2b1557.png)
 
-![PokePage](C:\Users\Hub_2\Desktop\desenvolviment\pokedex\src\assets\PokePageMobilepng.png)
+![PokePageMobilepng](https://user-images.githubusercontent.com/44384037/123525340-352d2b80-d6a6-11eb-8da9-81031b472446.png)
+
 
