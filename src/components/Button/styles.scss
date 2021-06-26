@@ -1,0 +1,13 @@
+button {
+   background: var(--green);
+   color: #fff;
+   border: 0;
+   border-radius: 0.5rem;
+   width: 10rem;
+   height: 2rem;
+   transition: filter(0.2s);
+
+   &:hover {
+      filter: contrast(0.75)
+   }
+}
