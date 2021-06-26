@@ -6,8 +6,7 @@ A pokedex made with the api from https://pokeapi.co/.
 This has been a very fun challenge, especially with Typescript, which has been giving me a few errors here and there. I hope whenever possible when I'm learning I can implement something here. Enjoy
 </p>
 
-<img src="./src/assets/PokePage.png">
+![PokePage](C:\Users\Hub_2\Desktop\desenvolviment\pokedex\src\assets\PokePage.png)
 
-<p align="center">
-  <img src="./src/assets/PokePageMobile.png">
-</p>
+![PokePage](C:\Users\Hub_2\Desktop\desenvolviment\pokedex\src\assets\PokePageMobilepng.png)
+
