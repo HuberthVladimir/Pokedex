@@ -1,4 +1,16 @@
 main {
+   display: flex;
+   flex-direction: column;
+
+   input {
+      width: 50rem;
+      margin: 2rem auto 0;
+      height: 2.5rem;
+      padding: 0 1rem;
+   }
+}
+
+.cardsPokemonList {
    margin: 2rem 0;
    display: grid;
    gap: 1rem;
