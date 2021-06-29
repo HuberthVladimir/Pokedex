@@ -1,0 +1,65 @@
+.buttonsSection {
+   display: flex;
+   margin: 0 auto;
+
+   @media (max-width: 1650px) {
+      display: block;
+      margin: 0 8rem;
+   }
+
+   @media (max-width: 1310px) {
+      margin: 0 5rem;
+   }
+
+   @media (max-width: 920px) {
+      margin: 0 3rem;
+   }
+
+   @media (max-width: 588px) {
+      margin: 0 8rem;
+   }
+
+   @media (max-width: 499px) {
+      margin: 0 6rem;
+   }
+   
+   @media (max-width: 333px) {
+      display: inline-block;
+      margin: 0 4.5rem;
+   }
+}
+
+.cardsPokemonList {
+   margin: 6rem 0;
+   display: grid;
+   gap: 1rem;
+   grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
+   grid-template-rows: auto;
+   justify-content: center;
+
+
+   @media (max-width: 1650px) {
+      margin: 3rem 0;
+      grid-template-columns: 19rem 19rem 19rem 19rem;
+   }
+   
+   @media (max-width: 1310px) {
+      margin: 4rem 0;
+      grid-template-columns: 19rem 19rem 19rem;
+   }
+
+   @media (max-width: 920px) {
+      margin: 5rem 0;
+      grid-template-columns: 19rem 19rem;
+   }
+
+   @media (max-width: 588px) {
+      margin: 6rem 0;
+      grid-template-columns: 19rem;
+   }
+
+   @media (max-width: 404px) {
+      margin: 8rem 0;
+      grid-template-columns: 19rem;
+   }
+}

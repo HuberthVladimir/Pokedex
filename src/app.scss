@@ -14,12 +14,27 @@ nav {
          color: var(--blue);
          cursor: default;
       }
+
    }
 
+   
    .buttonsNavBar {
       display: flex;
       gap: 1rem;
       margin-left: auto;
+      align-items: center;
+      
+      .iconGitHub {
+         width: 2.5rem;
+         height: 2.5rem;
+         cursor: pointer;
+         margin-left: 1rem;
+         transition: 1s;
+
+         &:hover {
+            color: var(--navy-blue)
+         }
+      }
    }
 
    p { 

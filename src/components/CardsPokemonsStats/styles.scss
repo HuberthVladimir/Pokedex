@@ -8,84 +8,84 @@ section {
    border-radius: 2rem;
    
    &.grass {
-      border: 10px solid rgb(155, 204, 80);
+      border: 10px solid var(--grass);
    }
 
    &.poison {
-      border: 10px solid rgb(185, 127, 201);
+      border: 10px solid var(--poison);
    }
    
    &.fire {
-      border: 10px solid rgb(253, 125, 36);
+      border: 10px solid var(--fire);
    }
    
    &.water {
-      border: 10px solid rgb(69, 146, 196);
+      border: 10px solid var(--water);
    }
    
    &.bug {
-      border: 10px solid rgb(114, 159, 63);
+      border: 10px solid var(--bug);
    }
    
    &.ground {
-      border-top: 10px solid rgb(247, 222, 63);
-      border-bottom: 10px solid rgb(247, 222, 63);
-      border-left: 10px solid rgb(171, 152, 66);
-      border-right: 10px solid rgb(171, 152, 66);
+      border-top: 10px solid var(--ground_y);
+      border-bottom: 10px solid var(--ground_y);
+      border-left: 10px solid var(--ground_dy);
+      border-right: 10px solid var(--ground_dy);
    }
 
    &.flying {
-      border-top: 10px solid rgb(61, 199, 239);
-      border-bottom: 10px solid rgb(61, 199, 239);
-      border-left: 10px solid rgb(189,185,184);
-      border-right: 10px solid rgb(189,185,184);
+      border-top: 10px solid var(--flying_b);
+      border-bottom: 10px solid black;
+      border-left: 10px solid var(--flying_g);
+      border-right: 10px solid var(--flying_g);
    }
    
    &.dragon {
-      border-top: 10px solid rgb(83, 164, 207);
-      border-bottom: 10px solid rgb(83, 164, 207);
-      border-left: 10px solid rgb(241, 110, 87);
-      border-right: 10px solid rgb(241, 110, 87);
+      border-top: 10px solid var(--dragon_b);
+      border-bottom: 10px solid var(--dragon_b);
+      border-left: 10px solid var(--flying_g);
+      border-right: 10px solid var(--flying_g);
    }
 
    &.normal {
-      border: 10px solid rgb(164, 172, 175);
+      border: 10px solid var(--normal);
    }
-   
+
    &.electric {
-      border: 10px solid rgb(238, 213, 53);
+      border: 10px solid var(--electric);
    }
-   
+
    &.fairy {
-      border: 10px solid rgb(253, 185, 233);
+      border: 10px solid var(--fairy);
    }
-   
+
    &.fighting {
-      border: 10px solid rgb(213, 103, 35);
+      border: 10px solid var(--fighting);
    }
-   
+
    &.psychic {
-      border: 10px solid rgb(243, 102, 185);
+      border: 10px solid var(--psychic);
    }
-   
+
    &.rock {
-      border: 10px solid rgb(163, 140, 33);
+      border: 10px solid var(--rock);
    }
 
    &.ghost {
-      border: 10px solid rgb(123, 98, 163);
+      border: 10px solid  var(--ghost);
    }
 
    &.steel {
-      border: 10px solid rgb(158, 183, 184);
+      border: 10px solid var(--steel);
    }
 
    &.ice {
-      border: 10px solid rgb(81, 196, 231);
+      border: 10px solid var(--ice);
    }
 
    &.dark {
-      border: 10px solid rgb(112, 112, 112);
+      border: 10px solidvar(--dark);
    }
 
    .headerCard {
@@ -132,75 +132,75 @@ section {
       }
 
       p.grass {
-         background:rgb(155, 204, 80);
+         background: var(--grass);
       }
 
       p.poison {
-         background: rgb(185, 127, 201);
+         background: var(--poison);
       }
       
       p.fire {
-         background: rgb(253, 125, 36);
+         background: var(--fire);
       }
       
       p.water {
-         background: rgb(69, 146, 196);
+         background: var(--water);
       }
       
       p.bug {
-         background: rgb(114, 159, 63);
+         background: var(--bug);
       }
 
       p.ground {
-         background: linear-gradient(rgb(247, 222, 63) 50%, rgb(171, 152, 66) 50%)
+         background: linear-gradient(var(--ground_y) 50%, var(--ground_dy)50%);
       }
 
       p.flying {
-         background: linear-gradient(rgb(61, 199, 239) 50%, rgb(189, 185, 184) 50%)
+         background: linear-gradient(var(--flying_b) 50%, var(--flying_g) 50%)
       }
       
       p.dragon {
-         background: linear-gradient(rgb(83, 164, 207) 50%, rgb(241, 110, 87) 50%)
+         background: linear-gradient(var(--dragon_b) 50%, var(--dragon_r) 50%)
       }
 
       p.normal {
-         background: rgb(164, 172, 175);
+         background: var(--normal);
       }
 
       p.electric {
-         background: rgb(238, 213, 53);
+         background: var(--electric);
       }
 
       p.fairy {
-         background: rgb(253, 185, 233);
+         background: var(--fairy);
       }
 
       p.fighting {
-         background: rgb(213, 103, 35);
+         background: var(--fighting);
       }
 
       p.psychic {
-         background: rgb(243, 102, 185);
+         background: var(--psychic);
       }
 
       p.rock {
-         background: rgb(163, 140, 33);
+         background: var(--rock);
       }
 
       p.ghost {
-         background: rgb(123, 98, 163);
+         background:  var(--ghost);
       }
 
       p.steel {
-         background: rgb(158, 183, 184);
+         background: var(--steel);
       }
 
       p.ice {
-         background: rgb(81, 196, 231);
+         background: var(--ice);
       }
 
       p.dark {
-         background: rgb(112, 112, 112);
+         background:var(--dark);
       }
    }   
 }
