@@ -29,7 +29,7 @@ export function App() {
           </Link>
 
           <IconContext.Provider value={{ className: "iconGitHub" }}>
-            <a href="https://github.com/HuberthVladimir">
+            <a href="https://github.com/HuberthVladimir/Pokedex">
               <FaGithub />
             </a>
           </IconContext.Provider>
