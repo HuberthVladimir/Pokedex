@@ -17,16 +17,19 @@ export function PokemonLIst() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
    const [inputData, setInputData] = useState('')
 
+
+
    useEffect(() => {
       const getPokemonList = async () => {
          const { data: response } = await api.get('/pokemon?limit=151&offset=0')
-         response.results.map(async (result: { url: string }) => {
+         let arrListPok = []
+         for (let result of response.results) {
             const { data: responseMap } = await axios.get(result.url)
-            setDataPokemon(oldState => [...oldState, responseMap])
+            arrListPok.push(responseMap)
          }
-         )
-      }
 
+         setDataPokemon(arrListPok)
+      }
       getPokemonList()
 
    }, [])
@@ -34,6 +37,8 @@ export function PokemonLIst() {
    function handleSearch(e: any) {
       setInputData(e.target.value)
    }
+
+   console.log(dataPokemon)
 
    return (
       <main>
@@ -76,7 +81,7 @@ export function PokemonLIst() {
                            sprite={data.sprites.front_default}
                         />
                      } else {
-                        return <p>We couldn't find your seach. Sry</p>
+                        return
                      }
                   })
                )

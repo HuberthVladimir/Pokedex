@@ -1,13 +1,14 @@
 import './styles.scss'
 
 interface ButtonProps {
-   handleClick?: () => void;
+   handleClick?: any;
    children: string;
+   color: string;
 }
 
-export function Button({ handleClick, children }: ButtonProps) {
+export function Button({ handleClick, children, color }: ButtonProps) {
    return (
-      <button onClick={handleClick}>
+      <button className={color} onClick={handleClick}>
          {children}
       </button>
    )

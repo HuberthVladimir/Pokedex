@@ -4,6 +4,9 @@ import { PokemonLIst } from "./pages/PokemonList";
 
 import { IconContext } from "react-icons";
 import { SiPokemon } from 'react-icons/si'
+import { PokemonTypes } from './pages/PokemonType';
+
+import { FaGithub } from 'react-icons/fa'
 
 export function App() {
   return (
@@ -24,9 +27,12 @@ export function App() {
           <Link style={{ textDecoration: 'none' }} to='/types'>
             <p>Types</p>
           </Link>
-          <Link style={{ textDecoration: 'none' }} to='/weakness'>
-            <p>Weakness</p>
-          </Link>
+
+          <IconContext.Provider value={{ className: "iconGitHub" }}>
+            <a href="https://github.com/HuberthVladimir/Pokedex">
+              <FaGithub />
+            </a>
+          </IconContext.Provider>
         </div>
       </nav>
       <Switch>
@@ -34,9 +40,7 @@ export function App() {
           <PokemonLIst />
         </Route>
         <Route path='/types'>
-          <h1>
-            oi
-          </h1>
+          <PokemonTypes />
         </Route>
         <Route path='/weakness'>
           <h1>

@@ -1,13 +1,84 @@
 button {
-   background: var(--green);
-   color: #fff;
+   width: 9.253rem;
+   height: 2.5rem;
+   transition: filter 2s;
    border: 0;
-   border-radius: 0.5rem;
-   width: 10rem;
-   height: 2rem;
-   transition: filter(0.2s);
 
    &:hover {
-      filter: contrast(0.75)
+      filter: brightness(0.8);
    }
+   
+   &.grass {
+      background: var(--grass);
+   }
+
+   &.water {
+      background: var(--water);
+   }
+
+   &.fire {
+      background: var(--fire);
+   }
+
+   &.poison {
+      background: var(--poison);
+   }
+
+   &.bug {
+      background: var(--bug);
+   }
+
+   &.ground {
+      background: linear-gradient(var(--ground_y) 50%, var(--ground_dy)50%);
+   }
+
+   &.flying {
+      background: linear-gradient(var(--flying_b) 50%, var(--flying_g) 50%)
+   }
+   
+   &.dragon {
+      background: linear-gradient(var(--dragon_b) 50%, var(--dragon_r) 50%)
+   }
+
+   &.normal {
+      background: var(--normal);
+   }
+
+   &.electric {
+      background: var(--electric);
+   }
+
+   &.fairy {
+      background: var(--fairy);
+   }
+
+   &.fighting {
+      background: var(--fighting);
+   }
+
+   &.psychic {
+      background: var(--psychic);
+   }
+
+   &.rock {
+      background: var(--rock);
+   }
+
+   &.ghost {
+      background:  var(--ghost);
+   }
+
+   &.steel {
+      background: var(--steel);
+   }
+
+   &.ice {
+      background: var(--ice);
+   }
+
+   &.dark {
+      background:var(--dark);
+      color: #fff;
+   }
+
 }
