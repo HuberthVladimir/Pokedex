@@ -15,7 +15,7 @@ const CardsPokemonsStats: React.FC<CardsPokemonsProps> = ({ sprite, id, name, fi
 
    return (
       <>
-         <section className={firstType}>
+         <section className={`card ${firstType}`}>
             <div className='headerCard'>
                <img
                   src={sprite}
@@ -30,10 +30,9 @@ const CardsPokemonsStats: React.FC<CardsPokemonsProps> = ({ sprite, id, name, fi
             <div className="pokemonInfos">
                <div className="pokemonTypes">
                   <p className="title">Type: </p>
-                  <p className={firstType}>{firstType}</p>
-                  <p className={secondType}>{secondType}</p>
+                  <p className={`typeTag ${firstType}`}>{firstType}</p>
+                  <p className={secondType ? `typeTag ${secondType}` : ''}>{secondType}</p>
                </div>
-
                <div className="pokemonAbility">
                   <p className="abilityTitle">Abilitys: </p>
                   <p>{firstAbility}</p>

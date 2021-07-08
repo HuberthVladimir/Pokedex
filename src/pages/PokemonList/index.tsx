@@ -2,6 +2,7 @@ import { api } from '../../services/api'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CardsPokemonsStats from '../../components/CardsPokemonsStats'
+import { Loading } from '../../components/Loading'
 
 import './styles.scss'
 
@@ -16,8 +17,7 @@ interface DataPokemon {
 export function PokemonLIst() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
    const [inputData, setInputData] = useState('')
-
-
+   const [loading, setLoading] = useState(true)
 
    useEffect(() => {
       const getPokemonList = async () => {
@@ -29,6 +29,7 @@ export function PokemonLIst() {
          }
 
          setDataPokemon(arrListPok)
+         setLoading(false)
       }
       getPokemonList()
 
@@ -38,13 +39,14 @@ export function PokemonLIst() {
       setInputData(e.target.value)
    }
 
-   console.log(dataPokemon)
-
    return (
       <main>
          <input type="seach" placeholder="You can seach your favorite Pokemon here 😜" name="PokemonSearch" onChange={handleSearch} />
-         <div className="cardsPokemonList" >
-            {
+         <div className={loading ? 'loading' : 'cardsPokemonList'} >
+
+            {loading ?
+               <Loading />
+               :
                !inputData &&
                (
                   dataPokemon.map((data) =>

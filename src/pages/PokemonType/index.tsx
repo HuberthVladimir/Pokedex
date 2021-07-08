@@ -5,6 +5,7 @@ import { api } from "../../services/api";
 import CardsPokemonsStats from '../../components/CardsPokemonsStats'
 
 import './style.scss'
+import { Loading } from "../../components/Loading";
 
 interface DataPokemon {
    id: string;
@@ -17,22 +18,29 @@ interface DataPokemon {
 export function PokemonTypes() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
    const [type, setType] = useState(0)
+   const [loading, setLoading] = useState(type === 0 ? false : true)
 
    useEffect(() => {
       const getPokemonList = async () => {
-         const { data: response } = await api.get(`/type/${type}`)
-         let arrListPok = []
-         for (let result of response.pokemon) {
-            let pokeIdUrl = result.pokemon.url
-            let idPokemon = pokeIdUrl.match(/[^/]+(?=\/$|$)/g).toString()
 
-            if (idPokemon <= 151) {
-               const { data: responseMap } = await axios.get(pokeIdUrl)
-               arrListPok.push(responseMap)
+         if (type > 0) {
+            const { data: response } = await api.get(`/type/${type}`)
+            let arrListPok = []
+            for (let result of response.pokemon) {
+               let pokeIdUrl = result.pokemon.url
+               let idPokemon = pokeIdUrl.match(/[^/]+(?=\/$|$)/g).toString()
+
+               if (idPokemon <= 151) {
+                  const { data: responseMap } = await axios.get(pokeIdUrl)
+                  arrListPok.push(responseMap)
+               }
             }
+
+            setDataPokemon(arrListPok)
+            setLoading(false)
          }
 
-         setDataPokemon(arrListPok)
+
       }
       getPokemonList()
 
@@ -61,26 +69,34 @@ export function PokemonTypes() {
             <Button handleClick={() => setType(18)} color="fairy">Fairy</Button>
          </div>
 
-         <div className="cardsPokemonList" >
+         <div className={type > 0 ? 'cardsPokemonList' : 'loading'} >
+
             {
-               type > 0 &&
-               (
-                  dataPokemon.map((data) =>
+               type === 0 &&
+               <h1>Select a pokemon Type</h1>
+            }
+            {
+               loading ?
+                  <Loading />
+                  :
+                  type > 0 &&
                   (
-                     <CardsPokemonsStats
-                        key={data.id}
-                        id={data.id}
-                        name={data.name}
-                        firstType={data.types[0].type.name}
-                        secondType={data.types[1]?.type?.name}
-                        firstAbility={data.abilities[0].ability.name}
-                        secondAbility={data.abilities[1]?.ability?.name}
-                        thirdAbility={data.abilities[2]?.ability?.name}
-                        sprite={data.sprites.front_default}
-                     />
+                     dataPokemon.map((data) =>
+                     (
+                        <CardsPokemonsStats
+                           key={data.id}
+                           id={data.id}
+                           name={data.name}
+                           firstType={data.types[0].type.name}
+                           secondType={data.types[1]?.type?.name}
+                           firstAbility={data.abilities[0].ability.name}
+                           secondAbility={data.abilities[1]?.ability?.name}
+                           thirdAbility={data.abilities[2]?.ability?.name}
+                           sprite={data.sprites.front_default}
+                        />
+                     )
+                     )
                   )
-                  )
-               )
             }
          </div>
       </>

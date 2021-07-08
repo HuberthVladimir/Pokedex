@@ -29,6 +29,13 @@
    }
 }
 
+.loading {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 2rem 0;
+}
+
 .cardsPokemonList {
    margin: 6rem 0;
    display: grid;

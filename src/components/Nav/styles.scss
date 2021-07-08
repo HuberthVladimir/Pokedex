@@ -5,14 +5,15 @@ nav {
    background: var(--yellow);
    align-items: center;
    padding: 0 3rem;
+   margin: 0 auto;
    
    .icon {
       
       .iconNavigationBar {
          width: 9rem;
-         height: 7rem;
+         height: 6rem;
          color: var(--blue);
-         cursor: default;
+         cursor: pointer;
       }
 
    }
@@ -30,10 +31,6 @@ nav {
          cursor: pointer;
          margin-left: 1rem;
          transition: 1s;
-
-         &:hover {
-            color: var(--navy-blue)
-         }
       }
    }
 
