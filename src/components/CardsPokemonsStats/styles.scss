@@ -51,9 +51,9 @@
    &.dragon {
       border-top: 10px solid var(--dragon_b);
       border-bottom: 10px solid var(--dragon_b);
-      border-left: 10px solid var(--flying_g);
-      border-right: 10px solid var(--flying_g);
-      background: var(--lower-dragon);
+      border-left: 10px solid var(--dragon_r);
+      border-right: 10px solid var(--dragon_r);
+      background: #F4AEA1;
    }
 
    &.normal {

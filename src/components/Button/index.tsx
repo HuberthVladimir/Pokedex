@@ -8,8 +8,8 @@ interface ButtonProps {
 
 export function Button({ handleClick, children, color }: ButtonProps) {
    return (
-      <button className={color} onClick={handleClick}>
+      <option className={color} onClick={handleClick}>
          {children}
-      </button>
+      </option>
    )
 }
