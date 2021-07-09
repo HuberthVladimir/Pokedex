@@ -27,7 +27,6 @@ export function PokemonLIst() {
             const { data: responseMap } = await axios.get(result.url)
             arrListPok.push(responseMap)
          }
-
          setDataPokemon(arrListPok)
          setLoading(false)
       }

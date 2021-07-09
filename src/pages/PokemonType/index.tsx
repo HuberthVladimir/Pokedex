@@ -35,16 +35,18 @@ export function PokemonTypes() {
                   arrListPok.push(responseMap)
                }
             }
-
             setDataPokemon(arrListPok)
             setLoading(false)
          }
-
-
       }
       getPokemonList()
 
    }, [type])
+
+   useEffect(() => {
+      const teste = window.localStorage.setItem('listPokemons', 'test')
+      // console.log(teste)
+   }, [])
 
    return (
       <>
