@@ -4,12 +4,17 @@ A pokedex made with the api from https://pokeapi.co/.
 </p>
 <div align="center">
   <img src="public/pokedesktop.png"/>
+  <br>
   <img src="public/pokemobile.png" />
 </div>
+
+<hr>
 
 ### Deploy
 
 You can acess [here](pokedex-chi-three.vercel.app/)
+
+<hr>
 
 ### 🚧 Features
 
@@ -22,6 +27,8 @@ Check the futures implementations below:
  - [ ] Game Who's that pokemon
  - [ ] Button Designs
  - [ ] Performance increase
+
+<hr>
 
 ### 📦 Install
 After you clone this project yout can:
@@ -38,6 +45,7 @@ npm start
 yarn add
 yarn start
 ```
+<hr>
 
 ### 🛠 Technologies
  
@@ -45,6 +53,8 @@ yarn start
  - [React](https://pt-br.reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [SASS](https://sass-lang.com/)
+
+<hr>
 
 ### 👨🏾‍💻 Author
 <a href="https://github.com/HuberthVladimir">
