@@ -1,13 +1,55 @@
-<h1>POKEDEX</h1>
-<h3>
+<h1 align="center">POKEDEX</h1>
+<p align="center">
 A pokedex made with the api from https://pokeapi.co/.
-</h3>
-<p>
-This has been a very fun challenge, especially with Typescript, which has been giving me a few errors here and there. I hope whenever possible when I'm learning I can implement something here. Enjoy
 </p>
+<div align="center">
+  <img src="public/pokedesktop.png"/>
+  <img src="public/pokemobile.png" />
+</div>
 
-![PokePage](https://user-images.githubusercontent.com/44384037/123525337-33636800-d6a6-11eb-81d3-14454f2b1557.png)
+### Deploy
 
-![PokePageMobilepng](https://user-images.githubusercontent.com/44384037/123525340-352d2b80-d6a6-11eb-8da9-81031b472446.png)
+You can acess [here](pokedex-chi-three.vercel.app/)
 
+### 🚧 Features
 
+This project is not finished yet 
+<br>
+Check the futures implementations below:
+ 
+ - [ ] Pagination
+ - [ ] Pokemon generation change
+ - [ ] Game Who's that pokemon
+ - [ ] Button Designs
+ - [ ] Performance increase
+
+### 📦 Install
+After you clone this project yout can:
+<h3>NPM </h3>
+
+```bash
+npm install
+npm start
+```
+
+<h3>Yarn</h3>
+
+```bash
+yarn add
+yarn start
+```
+
+### 🛠 Technologies
+ 
+ - [Node.js](https://nodejs.org/en/)
+ - [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SASS](https://sass-lang.com/)
+
+### 👨🏾‍💻 Author
+<a href="https://github.com/HuberthVladimir">
+ <img style="border-radius: 100px;" src="https://github.com/huberthvladimir.png" width="100px;" alt=""/>
+ <br />
+ <sub style="margin-bottom: 3px;"><b>Huberth Vladimir</b></sub></a>
+ 
+ [![Linkedin Badge](https://img.shields.io/badge/-Huberth-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/huberth-vladimir/)](https://www.linkedin.com/in/huberth-vladimir/) 
