@@ -20,6 +20,7 @@ const CardsPokemonsStats: React.FC<CardsPokemonsProps> = ({ sprite, id, name, fi
                <img
                   src={sprite}
                   alt={name}
+                  loading="lazy"
                />
                <div>
                   <p>#{id}</p>
