@@ -42,7 +42,7 @@ npm start
 <h3>Yarn</h3>
 
 ```bash
-yarn add
+yarn
 yarn start
 ```
 <hr>
