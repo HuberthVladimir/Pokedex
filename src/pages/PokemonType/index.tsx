@@ -19,18 +19,22 @@ export function PokemonTypes() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
    const [type, setType] = useState(0)
    const [loading, setLoading] = useState(type === 0 ? false : true)
+   const [amountCards, SetAmountCards] = useState(0)
 
    useEffect(() => {
       const getPokemonList = async () => {
 
          if (type > 0) {
             const { data: response } = await api.get(`/type/${type}`)
+
+            const amountCardsReturn = response.pokemon.slice(0, amountCards)
+
             let arrListPok = []
-            for (let result of response.pokemon) {
+            for (let result of amountCardsReturn) {
                let pokeIdUrl = result.pokemon.url
                let idPokemon = pokeIdUrl.match(/[^/]+(?=\/$|$)/g).toString()
 
-               if (idPokemon <= 151) {
+               if (idPokemon <= 898) {
                   const { data: responseMap } = await axios.get(pokeIdUrl)
                   arrListPok.push(responseMap)
                }
@@ -41,11 +45,21 @@ export function PokemonTypes() {
       }
       getPokemonList()
 
+   }, [amountCards, type])
+
+   useEffect(() => {
+      setDataPokemon([])
+      SetAmountCards(0)
    }, [type])
 
    useEffect(() => {
-      const teste = window.localStorage.setItem('listPokemons', 'test')
-      // console.log(teste)
+      const intersectionObserver = new IntersectionObserver(entries => {
+         if (entries.some(entry => entry.isIntersecting)) {
+            SetAmountCards((currentValue) => currentValue < 999 ? currentValue + 15 : 0);
+         }
+      })
+      intersectionObserver.observe(document.querySelector('#end-page')!);
+      return () => intersectionObserver.disconnect();
    }, [])
 
    return (
@@ -100,6 +114,7 @@ export function PokemonTypes() {
                      )
                   )
             }
+            <div id="end-page" />
          </div>
       </>
    )

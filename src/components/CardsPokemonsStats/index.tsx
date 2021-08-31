@@ -1,3 +1,7 @@
+import { useContext } from 'react'
+
+import AppGlobalContext from '../../services/context'
+
 import './styles.scss'
 
 interface CardsPokemonsProps {
@@ -11,11 +15,18 @@ interface CardsPokemonsProps {
    thirdAbility?: string;
 }
 
-const CardsPokemonsStats: React.FC<CardsPokemonsProps> = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }) => {
+const CardsPokemonsStats = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }: CardsPokemonsProps) => {
+
+   const { setModal, setRequestIdModal } = useContext(AppGlobalContext)
+
+   const handleClickModal = () => {
+      setModal(true)
+      setRequestIdModal(id)
+   }
 
    return (
       <>
-         <section className={`card ${firstType}`}>
+         <section className={`card ${firstType}`} onClick={handleClickModal}>
             <div className='headerCard'>
                <img
                   src={sprite}
@@ -42,6 +53,7 @@ const CardsPokemonsStats: React.FC<CardsPokemonsProps> = ({ sprite, id, name, fi
                </div>
             </div>
          </section>
+
       </>
    )
 }

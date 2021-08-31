@@ -6,6 +6,7 @@
    height: 16.5rem;
    border-radius: 2rem;
    overflow: hidden;
+   cursor: pointer;
    
    &.grass {
       border: 10px solid var(--grass);
@@ -102,7 +103,7 @@
    }
 
    &.dark {
-      border: 10px solidvar(--dark);
+      border: 10px solid var(--dark);
       background: var(--lower-dark);
    }
 

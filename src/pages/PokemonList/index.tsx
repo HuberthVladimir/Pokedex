@@ -1,8 +1,10 @@
+import axios from 'axios'
+
 import { api } from '../../services/api'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import CardsPokemonsStats from '../../components/CardsPokemonsStats'
 import { Loading } from '../../components/Loading'
+import { Modal } from '../../components/Modal'
+import CardsPokemonsStats from '../../components/CardsPokemonsStats'
 
 import './styles.scss'
 
@@ -18,10 +20,11 @@ export function PokemonLIst() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
    const [inputData, setInputData] = useState('')
    const [loading, setLoading] = useState(true)
+   const [amountCards, SetAmountCards] = useState(0)
 
    useEffect(() => {
       const getPokemonList = async () => {
-         const { data: response } = await api.get('/pokemon?limit=151&offset=0')
+         const { data: response } = await api.get(`/pokemon?limit=${amountCards}&offset=0`)
          let arrListPok = []
          for (let result of response.results) {
             const { data: responseMap } = await axios.get(result.url)
@@ -32,6 +35,16 @@ export function PokemonLIst() {
       }
       getPokemonList()
 
+   }, [amountCards])
+
+   useEffect(() => {
+      const intersectionObserver = new IntersectionObserver(entries => {
+         if (entries.some(entry => entry.isIntersecting)) {
+            SetAmountCards((currentValue) => currentValue < 898 ? currentValue + 15 : 0);
+         }
+      })
+      intersectionObserver.observe(document.querySelector('#end-page')!);
+      return () => intersectionObserver.disconnect();
    }, [])
 
    function handleSearch(e: any) {
@@ -40,6 +53,8 @@ export function PokemonLIst() {
 
    return (
       <main>
+         <Modal />
+
          <input type="seach" placeholder="You can seach your favorite Pokemon here 😜" name="PokemonSearch" onChange={handleSearch} />
          <div className={loading ? 'loading' : 'cardsPokemonList'} >
 
@@ -82,12 +97,14 @@ export function PokemonLIst() {
                            sprite={data.sprites.front_default}
                         />
                      } else {
-                        return
+                        return null
                      }
                   })
                )
             }
          </div>
+         <div id="end-page" />
+
       </main>
    )
 }
