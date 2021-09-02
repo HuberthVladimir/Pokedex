@@ -7,6 +7,7 @@ import CardsPokemonsStats from '../../components/CardsPokemonsStats'
 import './style.scss'
 import { Loading } from "../../components/Loading";
 import { Modal } from "../../components/Modal";
+import { BackToTop } from "../../components/BackToTop";
 
 interface DataPokemon {
    id: string;
@@ -66,6 +67,8 @@ export function PokemonTypes() {
    return (
       <>
          <Modal />
+         <BackToTop />
+
          <div className="buttonsSection">
             <Button handleClick={() => setType(1)} color="normal">Normal</Button>
             <Button handleClick={() => setType(2)} color="fighting">Fighting</Button>

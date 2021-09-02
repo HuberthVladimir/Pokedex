@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 
 export interface IProviderProps {
    children?: ReactNode;
@@ -9,13 +9,16 @@ interface AppGlobalProps {
    setModal: (arg: boolean) => void
    requestIdModal: string | null
    setRequestIdModal: (arg: string | null) => void
+   scrollPosition: number
+   setScrollPosition: (arg: number) => void
 }
 
 const AppGlobalContext = React.createContext({} as AppGlobalProps)
 
 export const AppProvider = ({ children }: IProviderProps) => {
-   const [modal, setModal] = React.useState(false)
-   const [requestIdModal, setRequestIdModal] = React.useState<string | null>(null)
+   const [modal, setModal] = useState(false)
+   const [requestIdModal, setRequestIdModal] = useState<string | null>(null)
+   const [scrollPosition, setScrollPosition] = useState(0);
 
    useEffect(() => {
       if (!modal) {
@@ -23,11 +26,25 @@ export const AppProvider = ({ children }: IProviderProps) => {
       }
    }, [modal])
 
+   useEffect(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      return () => {
+         window.removeEventListener('scroll', handleScroll);
+      };
+   }, []);
+
+   const handleScroll = () => {
+      const position = window.pageYOffset
+      setScrollPosition(position)
+   }
+
    return (
       <AppGlobalContext.Provider
          value={{
             modal, setModal,
-            requestIdModal, setRequestIdModal
+            requestIdModal, setRequestIdModal,
+            scrollPosition, setScrollPosition
          }}>
          {children}
       </AppGlobalContext.Provider>

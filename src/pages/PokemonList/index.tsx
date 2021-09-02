@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { Loading } from '../../components/Loading'
 import { Modal } from '../../components/Modal'
 import CardsPokemonsStats from '../../components/CardsPokemonsStats'
+import { BackToTop } from '../../components/BackToTop'
 
 import './styles.scss'
 
@@ -54,6 +55,7 @@ export function PokemonLIst() {
    return (
       <main>
          <Modal />
+         <BackToTop />
 
          <input type="seach" placeholder="You can seach your favorite Pokemon here 😜" name="PokemonSearch" onChange={handleSearch} />
          <div className={loading ? 'loading' : 'cardsPokemonList'} >
