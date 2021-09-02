@@ -22,11 +22,11 @@ This project is not finished yet
 <br>
 Check the futures implementations below:
  
- - [ ] Pagination
+ - [x] infinite scroll
+ - [x] Performance increase
  - [ ] Pokemon generation change
  - [ ] Game Who's that pokemon
  - [ ] Button Designs
- - [ ] Performance increase
 
 <hr>
 
