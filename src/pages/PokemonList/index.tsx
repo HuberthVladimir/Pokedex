@@ -40,7 +40,7 @@ export function PokemonLIst() {
    useEffect(() => {
       const intersectionObserver = new IntersectionObserver(entries => {
          if (entries.some(entry => entry.isIntersecting)) {
-            SetAmountCards((currentValue) => currentValue < 898 ? currentValue + 15 : 0);
+            SetAmountCards((currentValue) => currentValue < 898 ? currentValue + 15 : currentValue + 0);
          }
       })
       intersectionObserver.observe(document.querySelector('#end-page')!);
