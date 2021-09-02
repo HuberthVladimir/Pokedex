@@ -26,7 +26,7 @@ export const Navigation = () => {
             </Link>
 
             <IconContext.Provider value={{ className: "iconGitHub" }}>
-               <a href="https://github.com/HuberthVladimir/Pokedex" style={{ color: '#000' }} >
+               <a href="https://github.com/HuberthVladimir/Pokedex" target="_blank" rel="noreferrer" style={{ color: '#000' }} >
                   <FaGithub aria-hidden="true" />
                   <span className="sr-only">Repository of this project</span>
                </a>

@@ -19,7 +19,9 @@ interface DataPokemon {
 
 export function PokemonLIst() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
-   const [inputData, setInputData] = useState('')
+   const [inputData, setInputData] = useState<string | number>('')
+   const [dataSearchingPokemon, setDataSearchingPokemon] = useState<DataPokemon[]>([])
+   const [isSearching, setIsSearching] = useState(false)
    const [loading, setLoading] = useState(true)
    const [amountCards, SetAmountCards] = useState(0)
 
@@ -48,8 +50,32 @@ export function PokemonLIst() {
       return () => intersectionObserver.disconnect();
    }, [])
 
-   function handleSearch(e: any) {
-      setInputData(e.target.value)
+   async function handleSubmit(e: any) {
+      e.preventDefault()
+
+      if (inputData === '') {
+         setIsSearching(false)
+         setDataSearchingPokemon([])
+         setInputData('')
+
+      } else if (isNaN(Number(inputData))) {
+         setLoading(true)
+         const { data: response } = await api.get(`https://pokeapi.co/api/v2/pokemon?limit=898&offset=0`)
+         const searchResult = response.results.filter((data: any) => data.name.includes(`${inputData}`))
+         let arrListPok = []
+         for (let result of searchResult) {
+            const { data: responseMap } = await axios.get(result.url)
+            arrListPok.push(responseMap)
+         }
+         setDataSearchingPokemon(arrListPok)
+         setIsSearching(true)
+         setLoading(false)
+
+      } else {
+         const { data: response } = await api.get(`https://pokeapi.co/api/v2/pokemon/${inputData}`)
+         setDataSearchingPokemon([response])
+         setIsSearching(true)
+      }
    }
 
    return (
@@ -57,13 +83,33 @@ export function PokemonLIst() {
          <Modal />
          <BackToTop />
 
-         <input type="seach" placeholder="You can seach your favorite Pokemon here 😜" name="PokemonSearch" onChange={handleSearch} />
+         <form className="input-label" onSubmit={handleSubmit}>
+            <label htmlFor="PokemonSearch" className="sr-only">Pokemon Search</label>
+            <input type="seach" placeholder="Search any pokemon by name or id" name="PokemonSearch" id="PokemonSearch" value={inputData} onChange={(e) => setInputData(e.target.value)} />
+
+            <button type="submit" id="component-button">Search</button>
+
+            {isSearching &&
+               <button
+                  type="button"
+                  id="component-button"
+                  style={{ background: "#000", color: "#FFF" }}
+                  onClick={() => {
+                     setIsSearching(false)
+                     setInputData('')
+                  }
+                  }
+               >
+                  Reset search
+               </button>}
+         </form>
+
          <div className={loading ? 'loading' : 'cardsPokemonList'} >
 
             {loading ?
                <Loading />
                :
-               !inputData &&
+               !isSearching &&
                (
                   dataPokemon.map((data) =>
                   (
@@ -83,30 +129,25 @@ export function PokemonLIst() {
                )
             }
             {
-               inputData &&
+               isSearching &&
                (
-                  dataPokemon.map((data) => {
-                     if (data.name.includes(inputData)) {
-                        return <CardsPokemonsStats
-                           key={data.id}
-                           id={data.id}
-                           name={data.name}
-                           firstType={data.types[0].type.name}
-                           secondType={data.types[1]?.type?.name}
-                           firstAbility={data.abilities[0].ability.name}
-                           secondAbility={data.abilities[1]?.ability?.name}
-                           thirdAbility={data.abilities[2]?.ability?.name}
-                           sprite={data.sprites.front_default}
-                        />
-                     } else {
-                        return null
-                     }
+                  dataSearchingPokemon.map((data) => {
+                     return <CardsPokemonsStats
+                        key={data.id}
+                        id={data.id}
+                        name={data.name}
+                        firstType={data.types[0].type.name}
+                        secondType={data.types[1]?.type?.name}
+                        firstAbility={data.abilities[0].ability.name}
+                        secondAbility={data.abilities[1]?.ability?.name}
+                        thirdAbility={data.abilities[2]?.ability?.name}
+                        sprite={data.sprites.front_default}
+                     />
                   })
                )
             }
          </div>
-         <div id="end-page" />
-
+         <div id="end-page" style={{ display: `${isSearching ? 'none' : 'block'}` }} />
       </main>
    )
 }

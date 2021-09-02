@@ -8,7 +8,7 @@ interface ButtonProps {
 
 export function Button({ handleClick, children, color }: ButtonProps) {
    return (
-      <button className={color} onClick={handleClick}>
+      <button id="component-button" className={color} onClick={handleClick}>
          {children}
       </button>
    )

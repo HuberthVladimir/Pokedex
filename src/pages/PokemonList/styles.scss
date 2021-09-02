@@ -2,23 +2,39 @@ main {
    display: flex;
    flex-direction: column;
 
-   input {
-      width: 50rem;
+   .input-label {
+      display: flex;
+      gap: 1rem;
       margin: 2rem auto 0;
-      height: 2.5rem;
-      padding: 0 1rem;
-
-      @media (max-width: 759px) {
-         width: 40rem;
+      
+      @media (max-width: 920px) {
+         flex-direction: column;
+         align-items: center;
       }
 
-      @media (max-width: 597px) {
-         width: 30rem;
+      input{
+         width: 50rem;
+         
+         height: 2.5rem;
+         padding: 0 1rem;
+
+         @media (max-width: 759px) {
+            width: 40rem;
+         }
+
+         @media (max-width: 597px) {
+            width: 30rem;
+         }
+
+         @media (max-width: 450px) {
+            width: 20rem;
+         }
       }
 
-      @media (max-width: 450px) {
-         width: 20rem;
+      #component-button {
+         background: var(--yellow)
       }
+      
    }
 }
 
