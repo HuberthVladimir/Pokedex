@@ -10,8 +10,9 @@ export const Navigation = () => {
       <nav>
          <div className="icon">
             <IconContext.Provider value={{ className: "iconNavigationBar" }}>
-               <a href="/">
-                  <SiPokemon />
+               <a href="/" role="img">
+                  <SiPokemon aria-hidden="true" />
+                  <span className="sr-only">Repository of this project</span>
                </a>
             </IconContext.Provider>
          </div>
@@ -25,8 +26,9 @@ export const Navigation = () => {
             </Link>
 
             <IconContext.Provider value={{ className: "iconGitHub" }}>
-               <a href="https://github.com/HuberthVladimir/Pokedex" style={{ color: '#000' }}>
-                  <FaGithub />
+               <a href="https://github.com/HuberthVladimir/Pokedex" style={{ color: '#000' }} >
+                  <FaGithub aria-hidden="true" />
+                  <span className="sr-only">Repository of this project</span>
                </a>
             </IconContext.Provider>
          </div>
