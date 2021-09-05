@@ -1,17 +1,6 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export interface IProviderProps {
-   children?: ReactNode;
-}
-
-interface AppGlobalProps {
-   modal: boolean
-   setModal: (arg: boolean) => void
-   requestIdModal: string | null
-   setRequestIdModal: (arg: string | null) => void
-   scrollPosition: number
-   setScrollPosition: (arg: number) => void
-}
+import { IProviderProps, AppGlobalProps } from '../types'
 
 const AppGlobalContext = React.createContext({} as AppGlobalProps)
 

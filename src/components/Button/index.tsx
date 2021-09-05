@@ -1,12 +1,8 @@
 import './styles.scss'
 
-interface ButtonProps {
-   handleClick?: any;
-   children: string;
-   color: string;
-}
+import { ComponentButtonProps } from '../../types'
 
-export function Button({ handleClick, children, color }: ButtonProps) {
+export function Button({ handleClick, children, color }: ComponentButtonProps) {
    return (
       <button id="component-button" className={color} onClick={handleClick}>
          {children}

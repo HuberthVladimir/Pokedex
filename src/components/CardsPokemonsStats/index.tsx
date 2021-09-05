@@ -4,18 +4,9 @@ import AppGlobalContext from '../../services/context'
 
 import './styles.scss'
 
-interface CardsPokemonsProps {
-   sprite: string;
-   id: string;
-   name: string;
-   firstType: string;
-   secondType: string;
-   firstAbility?: string;
-   secondAbility?: string;
-   thirdAbility?: string;
-}
+import { ComponentCardsPokemonsProps } from '../../types'
 
-const CardsPokemonsStats = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }: CardsPokemonsProps) => {
+const CardsPokemonsStats = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }: ComponentCardsPokemonsProps) => {
 
    const { setModal, setRequestIdModal } = useContext(AppGlobalContext)
 

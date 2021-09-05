@@ -9,13 +9,7 @@ import { BackToTop } from '../../components/BackToTop'
 
 import './styles.scss'
 
-interface DataPokemon {
-   id: string;
-   name: string;
-   types: Array<{ type: { name: string } }>;
-   abilities: Array<{ ability: { name: string } }>;
-   sprites: { front_default: string };
-}
+import { DataPokemon } from '../../types'
 
 export function PokemonLIst() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])

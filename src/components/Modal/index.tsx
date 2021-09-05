@@ -5,16 +5,11 @@ import './styles.scss'
 
 import { api } from '../../services/api'
 
-interface DataPokemon {
-   id: string;
-   name: string;
-   types: Array<{ type: { name: string } }>;
-   sprites: { other: { 'official-artwork': { front_default: string } } };
-}
+import { ComponentDataPokemonModal } from '../../types'
 
 export const Modal = () => {
    const { modal, setModal, requestIdModal } = useContext(AppGlobalContext)
-   const [dataPokemonModal, setDataPokemonModal] = useState<DataPokemon[]>([])
+   const [dataPokemonModal, setDataPokemonModal] = useState<ComponentDataPokemonModal[]>([])
    const [typePokemonModal, setTypePokemonModal] = useState('')
 
    const hasSecondType = dataPokemonModal.map(data => {

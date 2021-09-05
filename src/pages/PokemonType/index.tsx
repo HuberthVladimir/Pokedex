@@ -9,13 +9,7 @@ import { Loading } from "../../components/Loading";
 import { Modal } from "../../components/Modal";
 import { BackToTop } from "../../components/BackToTop";
 
-interface DataPokemon {
-   id: string;
-   name: string;
-   types: Array<{ type: { name: string } }>;
-   abilities: Array<{ ability: { name: string } }>;
-   sprites: { front_default: string };
-}
+import { DataPokemon } from '../../types'
 
 export function PokemonTypes() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
