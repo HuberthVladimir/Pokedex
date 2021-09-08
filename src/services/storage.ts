@@ -2,4 +2,7 @@ export const setListPokemonAlreadyPlayed = (list: number[]) => localStorage.setI
 export const deleteListPokemonAlreadyPlayed = () => localStorage.removeItem('ALREADY_PLAYED')
 
 export const setScore = (list: number[]) => localStorage.setItem('SCORE', `${list}`)
-export const deleteScore = (list: number[]) => localStorage.removeItem('SCORE')
+export const deleteScore = () => localStorage.removeItem('SCORE')
+
+export const setGeneration = (gen: number) => localStorage.setItem('GENERATION', `${gen}`)
+export const deleteGeneration = () => localStorage.removeItem('GENERATION')

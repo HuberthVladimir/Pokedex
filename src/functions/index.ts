@@ -38,18 +38,18 @@ function setRangeGenerationPokemons(value: number) {
          minMaxValues.min = 494
          minMaxValues.max = 649
          return minMaxValues
-      case 6:
-         minMaxValues.min = 650
-         minMaxValues.max = 721
-         return minMaxValues
-      case 7:
-         minMaxValues.min = 722
-         minMaxValues.max = 809
-         return minMaxValues
-      case 8:
-         minMaxValues.min = 810
-         minMaxValues.max = 898
-         return minMaxValues
+      // case 6:
+      //    minMaxValues.min = 650
+      //    minMaxValues.max = 721
+      //    return minMaxValues
+      // case 7:
+      //    minMaxValues.min = 722
+      //    minMaxValues.max = 809
+      //    return minMaxValues
+      // case 8:
+      //    minMaxValues.min = 810
+      //    minMaxValues.max = 898
+      //    return minMaxValues
       case 10:
          minMaxValues.max = 898
          return minMaxValues

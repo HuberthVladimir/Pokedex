@@ -10,17 +10,13 @@ export const AppProvider = ({ children }: IProviderProps) => {
    const [scrollPosition, setScrollPosition] = useState(0);
 
    useEffect(() => {
-      if (!modal) {
-         setRequestIdModal(null)
-      }
+      if (!modal) setRequestIdModal(null)
    }, [modal])
 
    useEffect(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
 
-      return () => {
-         window.removeEventListener('scroll', handleScroll);
-      };
+      return () => window.removeEventListener('scroll', handleScroll)
    }, []);
 
    const handleScroll = () => {

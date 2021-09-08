@@ -1,0 +1,127 @@
+.mainContentGame {
+   padding: 3rem 15rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100vw;
+   height: calc(100vh - 5rem);
+   background: #D3D3D3;
+
+   @media(max-width: 1000px) {
+      padding: 3rem 2rem;
+   }
+
+   @media(max-width: 575px) {
+      height: 100vh;
+   }
+   .cardGame {
+      position: relative;
+      overflow: hidden;
+      min-width: 19rem;
+      max-width: 50rem;
+      width: 100%;
+      height: 100%;
+      border-radius: 40px;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 7rem;
+      padding: 3rem;
+
+      @media(max-width: 575px) {
+         height: 45rem;
+         padding: 1rem;
+         gap: 3rem;
+      }
+
+      .ball {
+         position: absolute;
+         width: 21.2rem;
+         height: 21.2rem;
+         clip-path: circle();
+         opacity: 0.7;
+
+         @media(max-width: 575px) {
+            width: 15.2rem;
+            height: 15.2rem;
+         }
+
+         @media(max-width: 375px) {
+            width: 10.2rem;
+            height: 10.2rem;
+         }
+      }
+   
+      .ball.top {
+         background: var(--blue);
+         width: 42.4rem;
+         height: 42.4rem;
+         top: -10rem;
+         left: -10rem;
+
+         @media(max-width: 575px) {
+            width: 30.4rem;
+            height: 30.4rem;
+         }
+
+         @media(max-width: 375px) {
+            width: 20.4rem;
+            height: 20.4rem;
+         }
+      }
+      
+      .ball.bottom {
+         background: var(--yellow);
+         right: -5rem;
+         bottom: -5rem;
+      }
+
+      .titleCardGame {
+         text-align: center;
+         font-size: 3rem;
+
+         @media(max-width: 575px) {
+            font-size: 2rem;
+         }
+      }
+
+      .selectGenerationCardGame, .imgCardGame, .titleCardGame, .newGame {
+         z-index: 2;
+      }
+
+      .imgCardGame {
+         background-color: #000000;
+         width: 30rem;
+         height: 30rem;
+
+         @media(max-width: 575px) {
+            width: 15rem;
+            height: 15rem;
+         }
+      }
+
+      .newGame {
+         display: flex;
+         flex-direction: column;
+         gap: 0.25rem;
+         align-items: center;
+
+         .newGameSetters {
+            display: flex;
+            gap: 1rem;
+
+            @media(max-width: 420px) {
+               flex-direction: column;
+            }
+         }
+
+         .errorGeneration {
+            font-size: 0.9rem;
+            color: #ED4337;
+         }
+      }
+   }
+}

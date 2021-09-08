@@ -3,7 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import { PokemonLIst } from './pages/PokemonList'
 import { PokemonTypes } from './pages/PokemonType'
-import { PokemonGames } from './pages/PokemonGames'
+import { PokemonGames } from './pages/PokemonGames/home'
+import { CardPokemonGame } from './pages/PokemonGames/card'
+import { ScorePokemonGame } from './pages/PokemonGames/score'
 import { Navigation } from './components/Nav'
 
 export default function Routes() {
@@ -13,9 +15,9 @@ export default function Routes() {
          <Switch>
             <Route path="/" component={PokemonLIst} exact />
             <Route path="/types" component={PokemonTypes} />
-            <Route path="/game" component={PokemonGames} />
-            <Route path="/game/card" component={PokemonGames} />
-            <Route path="/game/score" component={PokemonGames} />
+            <Route path="/game" component={PokemonGames} exact />
+            <Route path="/game/card" component={CardPokemonGame} />
+            <Route path="/game/score" component={ScorePokemonGame} />
          </Switch>
       </BrowserRouter>
    )
