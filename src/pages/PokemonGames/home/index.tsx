@@ -44,7 +44,7 @@ export const PokemonGames = () => {
             <div className="newGame">
                <div className="newGameSetters">
 
-                  <div className="custom-select" style={{ width: '200px' }}>
+                  <div className="custom-select">
                      <select id="generation" className="selectGenerationCardGame" defaultValue="0" onChange={(e) => setGenerationInput(+e.target.value)}>
                         <option value="0">Select a Pokemon Generation</option>
                         <option value="10">All generations</option>
@@ -59,7 +59,7 @@ export const PokemonGames = () => {
                      </select>
                   </div>
 
-                  <button className="startGame" onClick={handleClickNewGame}>Start new game</button>
+                  <button className="startGame" id="component-button" onClick={handleClickNewGame}>Start new game</button>
                </div>
                {errorGeneration &&
                   <span className="errorGeneration">Generation must be chosen</span>
