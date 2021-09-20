@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button } from "../../components/Button";
 import { api } from "../../services/api";
 import CardsPokemonsStats from '../../components/CardsPokemonsStats'
 
@@ -19,6 +18,10 @@ export function PokemonTypes() {
 
    useEffect(() => {
       const getPokemonList = async () => {
+
+         setLoading(true)
+
+         if (type === 0) setLoading(false)
 
          if (type > 0) {
             const { data: response } = await api.get(`/type/${type}`)
@@ -63,33 +66,43 @@ export function PokemonTypes() {
          <Modal />
          <BackToTop />
 
-         <div className="buttonsSection">
-            <Button handleClick={() => setType(1)} color="normal">Normal</Button>
-            <Button handleClick={() => setType(2)} color="fighting">Fighting</Button>
-            <Button handleClick={() => setType(3)} color="flying">Flying</Button>
-            <Button handleClick={() => setType(4)} color="poison">Poison</Button>
-            <Button handleClick={() => setType(5)} color="ground">Ground</Button>
-            <Button handleClick={() => setType(6)} color="rock">Rock</Button>
-            <Button handleClick={() => setType(7)} color="bug">Bug</Button>
-            <Button handleClick={() => setType(8)} color="ghost">Ghost</Button>
-            <Button handleClick={() => setType(9)} color="steel">Steel</Button>
-            <Button handleClick={() => setType(10)} color="fire">Fire</Button>
-            <Button handleClick={() => setType(11)} color="water">Water</Button>
-            <Button handleClick={() => setType(12)} color="grass">Grass</Button>
-            <Button handleClick={() => setType(13)} color="electric">Electric</Button>
-            <Button handleClick={() => setType(14)} color="psychic">Psychic</Button>
-            <Button handleClick={() => setType(15)} color="ice">Ice</Button>
-            <Button handleClick={() => setType(16)} color="dragon">Dragon</Button>
-            <Button handleClick={() => setType(17)} color="dark">Dark</Button>
-            <Button handleClick={() => setType(18)} color="fairy">Fairy</Button>
+         <div className="custom-select">
+            <select onChange={(e) => setType(+e.target.value)}>
+               <option value="0">Select a Pokemon:</option>
+               <option value="1">Normal</option>
+               <option value="2">Fighting</option>
+               <option value="3">Flying</option>
+               <option value="4">Poison</option>
+               <option value="5">Ground</option>
+               <option value="6">Rock</option>
+               <option value="7">Bug</option>
+               <option value="8">Ghost</option>
+               <option value="9">Steel</option>
+               <option value="10">Fire</option>
+               <option value="11">Water</option>
+               <option value="12">Grass</option>
+               <option value="13">Electric</option>
+               <option value="14">Psychic</option>
+               <option value="15">Ice</option>
+               <option value="16">Dragon</option>
+               <option value="17">Dark</option>
+               <option value="18">Fairy</option>
+            </select>
          </div>
 
-         <div className={type > 0 ? 'cardsPokemonList' : 'loading'} >
+         <div className={loading ? 'loading' : 'cardsPokemonList'} >
 
             {
                type === 0 &&
-               <h1>Select a pokemon Type</h1>
+               <>
+                  <div></div>
+                  <div></div>
+                  <h1 style={{ textAlign: "center" }}
+                  >Select a pokemon Type</h1>
+               </>
             }
+
+
             {
                loading ?
                   <Loading />

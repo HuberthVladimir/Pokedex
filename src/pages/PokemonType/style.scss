@@ -1,35 +1,33 @@
-.buttonsSection {
+.custom-select {
+   margin-top: 5rem;
+   position: relative;
    display: flex;
-   margin: 0 auto;
+   align-items: center;
+   justify-content: center;
 
-   @media (max-width: 1650px) {
-      display: block;
-      margin: 0 8rem;
+   & select {
+      background-color: var(--blue);
+      color: white;
+      padding: 12px;
+      width: 250px;
+      border: none;
+      font-size: 20px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      -webkit-appearance: button;
+      appearance: button;
+      outline: none;
    }
 
-   @media (max-width: 1310px) {
-      margin: 0 5rem;
+   select > option {
+      height: 100px;
    }
 
-   @media (max-width: 920px) {
-      margin: 0 3rem;
+   & select option {
+      padding: 30px;
    }
+ }
 
-   @media (max-width: 588px) {
-      margin: 0 8rem;
-   }
-
-   @media (max-width: 499px) {
-      margin: 0 6rem;
-   }
-   
-   @media (max-width: 333px) {
-      display: inline-block;
-      margin: 0 4.5rem;
-   }
-}
-
-.loading {
+ .loading {
    display: flex;
    justify-content: center;
    align-items: center;
