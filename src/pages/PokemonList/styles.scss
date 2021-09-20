@@ -31,7 +31,11 @@ main {
          }
       }
 
-      #component-button {
+      #input-button {
+         width: 9.253rem;
+         height: 2.5rem;
+         transition: filter 2s;
+         border: 0;
          background: var(--yellow)
       }
       

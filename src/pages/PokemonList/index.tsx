@@ -81,12 +81,12 @@ export function PokemonLIst() {
             <label htmlFor="PokemonSearch" className="sr-only">Pokemon Search</label>
             <input type="seach" placeholder="Search any pokemon by name or id" name="PokemonSearch" id="PokemonSearch" value={inputData} onChange={(e) => setInputData(e.target.value)} />
 
-            <button type="submit" id="component-button">Search</button>
+            <button type="submit" id="input-button">Search</button>
 
             {isSearching &&
                <button
                   type="button"
-                  id="component-button"
+                  id="input-button"
                   style={{ background: "#000", color: "#FFF" }}
                   onClick={() => {
                      setIsSearching(false)
