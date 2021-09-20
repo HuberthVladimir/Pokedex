@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
 import { IProviderProps, AppGlobalProps } from '../types'
+//import { } from '../services/storage'
 
-const AppGlobalContext = React.createContext({} as AppGlobalProps)
+const useAppGlobalContext = React.createContext({} as AppGlobalProps)
 
 export const AppProvider = ({ children }: IProviderProps) => {
    const [modal, setModal] = useState(false)
    const [requestIdModal, setRequestIdModal] = useState<string | null>(null)
    const [scrollPosition, setScrollPosition] = useState(0);
+   const [generation, setGeneration] = useState(localStorage.getItem('GENERATION') || '');
 
    useEffect(() => {
       if (!modal) setRequestIdModal(null)
@@ -24,16 +26,23 @@ export const AppProvider = ({ children }: IProviderProps) => {
       setScrollPosition(position)
    }
 
+   const setGenerationLocalStorage = (value: string) => {
+      setGeneration(value)
+      localStorage.setItem('GENERATION', value)
+   }
+
    return (
-      <AppGlobalContext.Provider
+      <useAppGlobalContext.Provider
          value={{
             modal, setModal,
             requestIdModal, setRequestIdModal,
-            scrollPosition, setScrollPosition
+            scrollPosition, setScrollPosition,
+            generation, setGeneration,
+            setGenerationLocalStorage
          }}>
          {children}
-      </AppGlobalContext.Provider>
+      </useAppGlobalContext.Provider>
    )
 }
 
-export default AppGlobalContext
+export default useAppGlobalContext

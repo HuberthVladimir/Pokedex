@@ -1,11 +1,11 @@
 import './styles.scss'
 import { IoCaretUpSharp } from "react-icons/io5";
 import { IconContext } from 'react-icons';
-import AppGlobalContext from '../../services/context';
+import useAppGlobalContext from '../../services/context';
 import { useContext } from 'react';
 
 export const BackToTop = () => {
-   const { scrollPosition } = useContext(AppGlobalContext)
+   const { scrollPosition } = useContext(useAppGlobalContext)
 
    const scrollTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });

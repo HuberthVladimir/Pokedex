@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import AppGlobalContext from '../../services/context'
+import useAppGlobalContext from '../../services/context'
 
 import './styles.scss'
 
@@ -8,7 +8,7 @@ import { ComponentCardsPokemonsProps } from '../../types'
 
 const CardsPokemonsStats = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }: ComponentCardsPokemonsProps) => {
 
-   const { setModal, setRequestIdModal } = useContext(AppGlobalContext)
+   const { setModal, setRequestIdModal } = useContext(useAppGlobalContext)
 
    const handleClickModal = () => {
       setModal(true)

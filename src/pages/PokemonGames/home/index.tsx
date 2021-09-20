@@ -1,27 +1,31 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './home.scss'
 import { getRandomNumber } from '../../../functions/'
 import { useHistory } from 'react-router'
-import { setGeneration } from '../../../services/storage'
+//import { setGeneration, deleteGeneration } from '../../../services/storage'
+import useAppGlobalContext from '../../../services/context'
 
 export const PokemonGames = () => {
    const [generationInput, setGenerationInput] = useState(0)
    const [randomPokemonCard, setRandomPokemonCard] = useState(0)
    const [errorGeneration, setErrorGeneration] = useState(false)
+   const { setGenerationLocalStorage } = useContext(useAppGlobalContext)
    const history = useHistory()
 
    React.useEffect(() => {
+      //deleteGeneration()
       setErrorGeneration(false)
       setRandomPokemonCard(getRandomNumber(1, 649))
    }, [])
+
 
    const handleClickNewGame = () => {
       if (generationInput === 0) {
          setErrorGeneration(true)
          return
       }
-
-      setGeneration(generationInput)
+      setGenerationLocalStorage(JSON.stringify(generationInput))
+      //setGeneration(JSON.stringify(generationInput))
       history.push('/game/card')
    }
 

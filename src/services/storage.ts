@@ -6,6 +6,21 @@ export const setScore = (list: number[]) => localStorage.setItem('SCORE', `${lis
 export const getScore = localStorage.getItem('SCORE')
 export const deleteScore = () => localStorage.removeItem('SCORE')
 
-export const setGeneration = (gen: number) => localStorage.setItem('GENERATION', `${gen}`)
-export const getGeneration = localStorage.getItem('GENERATION')
-export const deleteGeneration = () => localStorage.removeItem('GENERATION')
+export const setGenerationLocalStorage = (gen: string) => localStorage.setItem('GENERATION', `${gen}`)
+export const getGenerationLocalStorage = localStorage.getItem('GENERATION')
+export const deleteGenerationLocalStorage = () => localStorage.removeItem('GENERATION')
+
+// interface LocalStorageProps {
+//    type: 'GENERETION' | 'ALREADY_PLAYED' | 'SCORE'
+//    value: string
+// }
+
+// export const setLocalStorage = ({ type, value }: LocalStorageProps) => {
+//    localStorage.setItem(type, value)
+// }
+
+// export const getLocalStorage = (type) => {
+//    localStorage.get
+// }
+
+// setLocalStorage()
