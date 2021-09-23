@@ -46,5 +46,9 @@ export interface AppGlobalProps {
    scrollPosition: number
    setScrollPosition: (arg: number) => void
    score: number[],
-   setScore: (arg: number) => void
+   setScore: (arg: number) => void,
+   generationGame: number,
+   setGenerationGame: (arg: number) => void,
+   actualPokemonGame: number,
+   setActualPokemonGame: (arg: number) => void
 }

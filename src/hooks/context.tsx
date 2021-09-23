@@ -8,6 +8,15 @@ export const AppProvider = ({ children }: IProviderProps) => {
    const [modal, setModal] = useState(false)
    const [requestIdModal, setRequestIdModal] = useState<string | null>(null)
    const [scrollPosition, setScrollPosition] = useState(0)
+   const [generationGame, setGenerationGame] = useState(() => {
+      const generation = localStorage.getItem('GENERATION')
+
+      if (generation) {
+         return JSON.parse(generation)
+      }
+
+      return 0
+   })
    const [score, setScore] = useState(() => {
       const storageScore = localStorage.getItem('SCORE')
 
@@ -16,6 +25,15 @@ export const AppProvider = ({ children }: IProviderProps) => {
       }
 
       return []
+   })
+   const [actualPokemonGame, setActualPokemonGame] = useState(() => {
+      const actualPokemon = localStorage.getItem('POKEMON_GAME')
+
+      if (actualPokemon) {
+         return JSON.parse(actualPokemon)
+      }
+
+      return 0
    })
 
    useEffect(() => {
@@ -40,6 +58,8 @@ export const AppProvider = ({ children }: IProviderProps) => {
             requestIdModal, setRequestIdModal,
             scrollPosition, setScrollPosition,
             score, setScore,
+            actualPokemonGame, setActualPokemonGame,
+            generationGame, setGenerationGame
          }}>
          {children}
       </useAppGlobalContext.Provider>
