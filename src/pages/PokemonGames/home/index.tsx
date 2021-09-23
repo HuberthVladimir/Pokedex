@@ -2,18 +2,15 @@ import React, { useContext, useState } from 'react'
 import './home.scss'
 import { getRandomNumber } from '../../../functions/'
 import { useHistory } from 'react-router'
-//import { setGeneration, deleteGeneration } from '../../../services/storage'
-import useAppGlobalContext from '../../../services/context'
+//import {} from '../../../hooks/context'
 
 export const PokemonGames = () => {
    const [generationInput, setGenerationInput] = useState(0)
    const [randomPokemonCard, setRandomPokemonCard] = useState(0)
    const [errorGeneration, setErrorGeneration] = useState(false)
-   const { setGenerationLocalStorage } = useContext(useAppGlobalContext)
    const history = useHistory()
 
    React.useEffect(() => {
-      //deleteGeneration()
       setErrorGeneration(false)
       setRandomPokemonCard(getRandomNumber(1, 649))
    }, [])
@@ -24,8 +21,6 @@ export const PokemonGames = () => {
          setErrorGeneration(true)
          return
       }
-      setGenerationLocalStorage(JSON.stringify(generationInput))
-      //setGeneration(JSON.stringify(generationInput))
       history.push('/game/card')
    }
 
@@ -58,8 +53,8 @@ export const PokemonGames = () => {
                         <option value="4">Generation 4</option>
                         <option value="5">Generation 5</option>
                         {/* <option value="6">Generation 6</option>
-                     <option value="7">Generation 7</option>
-                     <option value="8">Generation 8</option> */}
+                        <option value="7">Generation 7</option>
+                        <option value="8">Generation 8</option> */}
                      </select>
                   </div>
 

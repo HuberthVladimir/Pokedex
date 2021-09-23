@@ -45,7 +45,6 @@ export interface AppGlobalProps {
    setRequestIdModal: (arg: string | null) => void
    scrollPosition: number
    setScrollPosition: (arg: number) => void
-   generation: string
-   setGeneration: (arg: string) => void
-   setGenerationLocalStorage: (arg: string) => void
+   score: number[],
+   setScore: (arg: number) => void
 }

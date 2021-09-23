@@ -1,18 +1,12 @@
-import React, { useContext } from "react"
+import React from "react"
 import './card.scss'
-// import { getGeneration } from '../../../services/storage'
-// import { useHistory } from 'react-router-dom'
-import useAppGlobalContext from '../../../services/context'
+//import { useGloBalContext } from '../../../hooks/context'
 
 export const CardPokemonGame = () => {
-   const { generation } = useContext(useAppGlobalContext)
-
-   React.useEffect(() => {
-      console.log(generation)
-   }, [generation])
 
    return (
       <>
+         <h1>oi</h1>
       </>
 
    )

@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { IProviderProps, AppGlobalProps } from '../types'
-//import { } from '../services/storage'
 
 const useAppGlobalContext = React.createContext({} as AppGlobalProps)
 
 export const AppProvider = ({ children }: IProviderProps) => {
    const [modal, setModal] = useState(false)
    const [requestIdModal, setRequestIdModal] = useState<string | null>(null)
-   const [scrollPosition, setScrollPosition] = useState(0);
-   const [generation, setGeneration] = useState(localStorage.getItem('GENERATION') || '');
+   const [scrollPosition, setScrollPosition] = useState(0)
+   const [score, setScore] = useState(() => {
+      const storageScore = localStorage.getItem('SCORE')
+
+      if (storageScore) {
+         return JSON.parse(storageScore)
+      }
+
+      return []
+   })
 
    useEffect(() => {
       if (!modal) setRequestIdModal(null)
@@ -26,23 +33,21 @@ export const AppProvider = ({ children }: IProviderProps) => {
       setScrollPosition(position)
    }
 
-   const setGenerationLocalStorage = (value: string) => {
-      setGeneration(value)
-      localStorage.setItem('GENERATION', value)
-   }
-
    return (
       <useAppGlobalContext.Provider
          value={{
             modal, setModal,
             requestIdModal, setRequestIdModal,
             scrollPosition, setScrollPosition,
-            generation, setGeneration,
-            setGenerationLocalStorage
+            score, setScore,
          }}>
          {children}
       </useAppGlobalContext.Provider>
    )
 }
 
-export default useAppGlobalContext
+export function useGloBalContext(): AppGlobalProps {
+   const context = useContext(useAppGlobalContext)
+
+   return context
+}
