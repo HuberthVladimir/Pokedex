@@ -4,7 +4,7 @@ import { api } from "../../services/api";
 import CardsPokemonsStats from '../../components/CardsPokemonsStats'
 
 import './style.scss'
-import { Loading } from "../../components/Loading";
+//import { Loading } from "../../components/Loading";
 import { Modal } from "../../components/Modal";
 import { BackToTop } from "../../components/BackToTop";
 
@@ -13,15 +13,11 @@ import { DataPokemon } from '../../types'
 export function PokemonTypes() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])
    const [type, setType] = useState(0)
-   const [loading, setLoading] = useState(type === 0 ? false : true)
+   //const [loading, setLoading] = useState(type === 0 ? false : true)
    const [amountCards, SetAmountCards] = useState(0)
 
    useEffect(() => {
       const getPokemonList = async () => {
-
-         setLoading(true)
-
-         if (type === 0) setLoading(false)
 
          if (type > 0) {
             const { data: response } = await api.get(`/type/${type}`)
@@ -39,7 +35,6 @@ export function PokemonTypes() {
                }
             }
             setDataPokemon(arrListPok)
-            setLoading(false)
          }
       }
       getPokemonList()
@@ -90,7 +85,7 @@ export function PokemonTypes() {
             </select>
          </div>
 
-         <div className={loading ? 'loading' : 'cardsPokemonList'} >
+         <div className="cardsPokemonList" >
 
             {
                type === 0 &&
@@ -104,27 +99,24 @@ export function PokemonTypes() {
 
 
             {
-               loading ?
-                  <Loading />
-                  :
-                  type > 0 &&
+               type > 0 &&
+               (
+                  dataPokemon.map((data) =>
                   (
-                     dataPokemon.map((data) =>
-                     (
-                        <CardsPokemonsStats
-                           key={data.id}
-                           id={data.id}
-                           name={data.name}
-                           firstType={data.types[0].type.name}
-                           secondType={data.types[1]?.type?.name}
-                           firstAbility={data.abilities[0].ability.name}
-                           secondAbility={data.abilities[1]?.ability?.name}
-                           thirdAbility={data.abilities[2]?.ability?.name}
-                           sprite={data.sprites.front_default}
-                        />
-                     )
-                     )
+                     <CardsPokemonsStats
+                        key={data.id}
+                        id={data.id}
+                        name={data.name}
+                        firstType={data.types[0].type.name}
+                        secondType={data.types[1]?.type?.name}
+                        firstAbility={data.abilities[0].ability.name}
+                        secondAbility={data.abilities[1]?.ability?.name}
+                        thirdAbility={data.abilities[2]?.ability?.name}
+                        sprite={data.sprites.front_default}
+                     />
                   )
+                  )
+               )
             }
             <div id="end-page" />
          </div>
