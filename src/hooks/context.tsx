@@ -35,6 +35,15 @@ export const AppProvider = ({ children }: IProviderProps) => {
 
       return 0
    })
+   const [alreadyPlayedPokemons, setAlreadyPlayedPokemons] = useState(() => {
+      const pokemonAlreadyPlayed = localStorage.getItem('ALREADY_PLAYED')
+
+      if (pokemonAlreadyPlayed) {
+         return JSON.parse(pokemonAlreadyPlayed)
+      }
+
+      return []
+   })
 
    useEffect(() => {
       if (!modal) setRequestIdModal(null)
@@ -59,7 +68,8 @@ export const AppProvider = ({ children }: IProviderProps) => {
             scrollPosition, setScrollPosition,
             score, setScore,
             actualPokemonGame, setActualPokemonGame,
-            generationGame, setGenerationGame
+            generationGame, setGenerationGame,
+            alreadyPlayedPokemons, setAlreadyPlayedPokemons
          }}>
          {children}
       </useAppGlobalContext.Provider>

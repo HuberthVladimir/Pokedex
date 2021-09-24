@@ -50,5 +50,7 @@ export interface AppGlobalProps {
    generationGame: number,
    setGenerationGame: (arg: number) => void,
    actualPokemonGame: number,
-   setActualPokemonGame: (arg: number) => void
+   setActualPokemonGame: (arg: number) => void,
+   alreadyPlayedPokemons: number[],
+   setAlreadyPlayedPokemons: (arg: number[]) => void
 }

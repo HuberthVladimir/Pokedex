@@ -7,19 +7,18 @@ import { useGloBalContext } from '../../../hooks/context'
 export const PokemonGames = () => {
    const [randomPokemonCard, setRandomPokemonCard] = useState(0)
    const [errorGeneration, setErrorGeneration] = useState(false)
-   const { generationGame, setGenerationGame } = useGloBalContext()
+   const { generationGame, setGenerationGame, setAlreadyPlayedPokemons } = useGloBalContext()
    const history = useHistory()
 
    useEffect(() => {
+      localStorage.removeItem('ALREADY_PLAYED')
+      localStorage.removeItem('POKEMON_GAME')
       localStorage.setItem('GENERATION', JSON.stringify(0))
       setGenerationGame(0)
       setErrorGeneration(false)
       setRandomPokemonCard(getRandomNumber(1, 649))
-   }, [])
-
-   useEffect(() => {
-      console.log(generationGame)
-   }, [generationGame])
+      setAlreadyPlayedPokemons([])
+   }, [setGenerationGame, setAlreadyPlayedPokemons])
 
    const handleClickNewGame = () => {
       if (generationGame === 0) {

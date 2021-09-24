@@ -1,16 +1,16 @@
-const arrayPoke: any = []
+//const arrayPoke: any = []
 const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min
 
-const vectorPokemonAlreadyGuessed = (min: number, max: number) => {
-   const randomNumber = getRandomNumber(min, max)
-   if (arrayPoke.length === (min - max)) {
-      return console.log('limite')
-   }
+// const vectorPokemonAlreadyGuessed = (min: number, max: number) => {
+//    const randomNumber = getRandomNumber(min, max)
+//    if (arrayPoke.length === (min - max)) {
+//       return console.log('limite')
+//    }
 
-   !arrayPoke.includes(randomNumber) ? arrayPoke.push(randomNumber) : vectorPokemonAlreadyGuessed(min, max)
+//    !arrayPoke.includes(randomNumber) ? arrayPoke.push(randomNumber) : vectorPokemonAlreadyGuessed(min, max)
 
-   return arrayPoke
-}
+//    return arrayPoke
+// }
 
 function setRangeGenerationPokemons(value: number) {
    let minMaxValues = {
@@ -51,7 +51,7 @@ function setRangeGenerationPokemons(value: number) {
       //    minMaxValues.max = 898
       //    return minMaxValues
       case 10:
-         minMaxValues.max = 898
+         minMaxValues.max = 649 //898
          return minMaxValues
       default:
          minMaxValues.min = 0
@@ -61,5 +61,5 @@ function setRangeGenerationPokemons(value: number) {
 }
 
 
-
-export { vectorPokemonAlreadyGuessed, setRangeGenerationPokemons, getRandomNumber }
+//vectorPokemonAlreadyGuessed
+export { setRangeGenerationPokemons, getRandomNumber }
