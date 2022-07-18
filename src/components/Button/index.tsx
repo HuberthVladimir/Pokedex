@@ -1,6 +1,6 @@
 import './styles.scss'
 
-import { ComponentButtonProps } from '../../types'
+import { ComponentButtonProps } from 'types'
 
 export function Button({ handleClick, children, color }: ComponentButtonProps) {
    return (

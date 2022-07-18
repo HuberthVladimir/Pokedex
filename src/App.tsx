@@ -1,5 +1,5 @@
 import Routes from './routes';
-import { AppProvider } from './hooks/context'
+import { AppProvider } from 'hooks/context'
 
 export function App() {
   return (

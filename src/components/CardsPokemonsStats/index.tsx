@@ -1,8 +1,7 @@
-import { useGloBalContext } from '../../hooks/context'
+import { useGloBalContext } from 'hooks/context'
+import { ComponentCardsPokemonsProps } from 'types'
 
 import './styles.scss'
-
-import { ComponentCardsPokemonsProps } from '../../types'
 
 const CardsPokemonsStats = ({ sprite, id, name, firstType, secondType, firstAbility, secondAbility, thirdAbility }: ComponentCardsPokemonsProps) => {
 
@@ -47,4 +46,4 @@ const CardsPokemonsStats = ({ sprite, id, name, firstType, secondType, firstAbil
    )
 }
 
-export default CardsPokemonsStats
+export { CardsPokemonsStats }

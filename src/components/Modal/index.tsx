@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useGloBalContext } from '../../hooks/context'
+import { useGloBalContext } from 'hooks/context'
+import { api } from 'services/api'
+import { ComponentDataPokemonModal } from 'types'
 
 import './styles.scss'
-
-import { api } from '../../services/api'
-
-import { ComponentDataPokemonModal } from '../../types'
 
 export const Modal = () => {
    const { modal, setModal, requestIdModal } = useGloBalContext()

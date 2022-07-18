@@ -1,15 +1,14 @@
 import axios from 'axios'
-
-import { api } from '../../services/api'
 import { useEffect, useState } from 'react'
-import { Loading } from '../../components/Loading'
-import { Modal } from '../../components/Modal'
-import CardsPokemonsStats from '../../components/CardsPokemonsStats'
-import { BackToTop } from '../../components/BackToTop'
+
+import { api } from 'services/api'
+import { Loading } from 'components/Loading'
+import { Modal } from 'components/Modal'
+import { CardsPokemonsStats } from 'components/CardsPokemonsStats'
+import { BackToTop } from 'components/BackToTop'
+import { DataPokemon } from 'types'
 
 import './styles.scss'
-
-import { DataPokemon } from '../../types'
 
 export function PokemonLIst() {
    const [dataPokemon, setDataPokemon] = useState<DataPokemon[]>([])

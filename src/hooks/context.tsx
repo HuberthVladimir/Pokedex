@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 
-import { IProviderProps, AppGlobalProps } from '../types'
+import { IProviderProps, AppGlobalProps } from 'types'
 
 const useAppGlobalContext = React.createContext({} as AppGlobalProps)
 

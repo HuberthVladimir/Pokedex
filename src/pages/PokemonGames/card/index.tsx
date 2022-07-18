@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
-import './card.scss'
-import { useGloBalContext } from '../../../hooks/context'
+import { useGloBalContext } from 'hooks/context'
+import { setRangeGenerationPokemons, getRandomNumber } from 'functions'
 import { useHistory } from "react-router"
-import { setRangeGenerationPokemons, getRandomNumber } from '../../../functions'
+
+import './card.scss'
 
 export const CardPokemonGame = () => {
    const history = useHistory()

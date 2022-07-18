@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './home.scss'
-import { getRandomNumber } from '../../../functions/'
+import { getRandomNumber } from 'functions/'
+import { useGloBalContext } from 'hooks/context'
 import { useHistory } from 'react-router'
-import { useGloBalContext } from '../../../hooks/context'
+import './home.scss'
 
 export const PokemonGames = () => {
    const [randomPokemonCard, setRandomPokemonCard] = useState(0)

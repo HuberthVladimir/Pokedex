@@ -1,7 +1,7 @@
 import './styles.scss'
 import { IoCaretUpSharp } from "react-icons/io5";
 import { IconContext } from 'react-icons';
-import { useGloBalContext } from '../../hooks/context';
+import { useGloBalContext } from 'hooks/context';
 
 export const BackToTop = () => {
    const { scrollPosition } = useGloBalContext()
