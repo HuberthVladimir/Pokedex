@@ -6,8 +6,6 @@ import "./styles.scss"
 export const BackToTop = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
 
-  console.log(scrollPosition)
-
   const handleScroll = () => {
     const position = window.pageYOffset
     setScrollPosition(position)
@@ -26,6 +24,7 @@ export const BackToTop = () => {
   return (
     <button
       className="backToTop"
+      data-testid="back-to-top-button"
       onClick={scrollTop}
       style={{ display: `${scrollPosition > 80 ? "flex" : "none"}` }}
     >
